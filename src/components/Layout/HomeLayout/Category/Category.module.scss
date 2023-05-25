@@ -1,0 +1,88 @@
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 350px;
+    margin-right: 350px;
+}
+
+.category {
+    margin-top: 40px;
+    display: flex;
+}
+
+.category-sex-filter {
+    display: flex;
+    flex: 1;
+
+    h2 {
+        font-size: 2rem;
+        line-height: 28px;
+        color: var(--text-title-color);
+        margin-right: 15px;
+    }
+
+    button {
+        align-items: center;
+        text-align: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 0px;
+        padding: 12px 10px;
+        background-color: white;
+        border-radius: 15px;
+        border: 1px solid #e5e5e5;
+        margin: 0 5px;
+        cursor: pointer;
+    }
+
+    button:active {
+        border: 1px solid #6677f7;
+    }
+}
+
+.category-filter-init {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.3rem;
+    line-height: 0px;
+    color: #959595;
+    margin-right: 110px;
+    cursor: pointer;
+
+    &:active {
+        color: var(--text-title-color);
+    }
+}
+
+.category-filter {
+    display: flex;
+    flex-direction: column;
+
+    .category-filter-top,
+    .category-filter-bottom {
+        display: flex;
+        margin: 10px 0;
+        justify-content: center;
+    }
+}
+
+.filter-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0px;
+    font-weight: 700;
+    font-size: 1.3rem;
+    width: 95px;
+    height: 38px;
+    margin: 0 10px;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    cursor: pointer;
+
+    &:active {
+        border: 1px solid #6677f7;
+    }
+}
