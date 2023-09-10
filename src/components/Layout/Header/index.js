@@ -8,7 +8,9 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
-                <img src={images.logo} alt="Fission" />
+                <a href="/" className={cx('home')}>
+                    <img src={images.logo} alt="Fission" />
+                </a>
             </div>
         </header>
     );

@@ -122,9 +122,12 @@ function Menu() {
     return (
         <div className={cx('wrapper')}>
             <div className={cx('title')}>
+                <h2> </h2>
+            </div>
+            {/* <div className={cx('title')}>
                 <h2>의류 목록</h2>
                 <button>키테고리 정확도 순</button>
-            </div>
+            </div> */}
             <div className={cx('content')}>
                 {data.map((item, index) => {
                     return (
