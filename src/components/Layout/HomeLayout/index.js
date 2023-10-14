@@ -1,5 +1,4 @@
 import Header from '~/components/Layout/Header';
-import Menu from '~/components/Layout/Menu';
 import Details from './Category';
 
 function DetailsLayout({ children }) {
@@ -8,7 +7,6 @@ function DetailsLayout({ children }) {
             <Header />
             <div className="container">
                 <Details />
-                <Menu />
             </div>
         </div>
     );
