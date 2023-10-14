@@ -93,7 +93,9 @@ function Category() {
                         <button className={cx('btn-sex-filter')}>남자</button>
                         <button className={cx('btn-sex-filter')}>여자</button> */}
                     </div>
-                    <div className={cx('category-filter-init')}>필터 초기화</div>
+                    <a href="/" className={cx('category-filter-init')}>
+                        필터 초기화
+                    </a>
                 </div>
                 <div className={cx('category-filter')}>
                     {filters.map((category, idx) => (

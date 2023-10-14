@@ -51,6 +51,10 @@
     margin-right: 110px;
     cursor: pointer;
 
+    a {
+        color: #959595;
+    }
+
     &:active {
         color: var(--text-title-color);
     }
