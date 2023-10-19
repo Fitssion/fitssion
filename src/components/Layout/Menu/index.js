@@ -1,5 +1,6 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
+import './style.css';
 
 import { Data } from '~/Database/Data.js';
 import { useState } from 'react';
@@ -22,20 +23,20 @@ function Menu() {
                     return (
                         <div className={cx('product')} key={index}>
                             <img src={item.imgSrc} alt="Product" />
-                            <a href="/details" className={cx('product-name')}>
+                            <a href={`/products/${item.id}`} className={cx('product-name')}>
                                 {item.name}
                             </a>
                             <div className={cx('product-seller-price')}>
                                 <p className={cx('product-seller')}>{item.seller}</p>
                                 <p className={cx('product-price')}>{item.price.toLocaleString()}원</p>
                             </div>
-                            <div className={cx('product-category')}>
+                            {/* <div className={cx('product-category')}>
                                 {[...item.categoryId].map((x, i) => (
                                     <div className={cx('product-category-id')} key={i}>
                                         {x}
                                     </div>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
                     );
                 })}

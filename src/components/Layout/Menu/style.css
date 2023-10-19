@@ -1,0 +1,49 @@
+.category-sex-filter {
+    display: flex;
+    flex: 1;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 28px;
+    color: var(--text-title-color);
+    margin-right: 15px;
+}
+
+.btn-sex-filter {
+    align-items: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 0px;
+    padding: 12px 10px;
+    background-color: white;
+    border-radius: 15px;
+    border: 1px solid #e5e5e5;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.btn-sex-filter:active {
+    border: 1px solid #6677f7;
+}
+
+.filter-name {
+    width: 100px;
+    height: 30px;
+    border: 1px solid #000;
+    background: transparent;
+    margin: 5px 5px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.filter-name:hover {
+    box-shadow: 3px 3px 0px 0px rgba(0, 0, 0);
+}
+
+.active {
+    border: 1px solid #6677f7;
+}

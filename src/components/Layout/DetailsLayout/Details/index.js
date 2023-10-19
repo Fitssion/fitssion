@@ -1,59 +1,50 @@
 import classNames from 'classnames/bind';
 import styles from './Details.module.scss';
-
-import img1 from '~/assets/images/T-shirt.png';
+import './style.css';
+import { Data } from '~/Database/Data.js';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
-function Details() {
-    const data = [
-        {
-            id: 1,
-            name: '세터 로고 자수 보야지 반팔 티셔츠',
-            seller: '무신사 (Musinsa)',
-            price: 79000,
-            categoryId: ['독특한', '시원한', '밝은'],
-            imgSrc: img1,
-            gender: '남',
-        },
-    ];
+const Details = ({ id }) => {
+    const [item, setData] = useState(Data);
 
-    return (
-        <div className={cx('wrapper')}>
-            <div className={cx('content')}>
-                {data.map((item, index) => {
-                    return (
-                        <div className={cx('product')} key={index}>
-                            <img src={item.imgSrc} alt="Product" />
+    for (let i = 0; i < Data.length; i++) {
+        if (id == item[i].id) {
+            return (
+                <div className={cx('wrapper')}>
+                    <div className={cx('content')}>
+                        <div className={cx('product')}>
+                            <img src={item[i].imgSrc} alt="Product" />
                             <div className={cx('produc-details')}>
-                                <a href="/details" className={cx('product-name')}>
-                                    {item.name}
+                                <a href={`/products/${item[i].id}`} className={cx('product-name')}>
+                                    {item[i].name}
                                 </a>
-                                <p className={cx('product-price')}>{item.price.toLocaleString()}원</p>
-                                <div className={cx('product-category')}>
+                                <p className={cx('product-price')}>{item[i].price.toLocaleString()}원</p>
+                                {/* <div className={cx('product-category')}>
                                     {[...item.categoryId].map((x, i) => (
                                         <div className={cx('product-category-id')} key={i}>
                                             {x}
                                         </div>
                                     ))}
-                                </div>
+                                </div> */}
 
-                                <p className={cx('product-seller')}>{item.seller}</p>
+                                <p className={cx('product-seller')}>{item[i].seller}</p>
                                 <div className={cx('btn')}>
-                                    <a href="/details" className={cx('seller-link')}>
+                                    <a href={`${item[i].link}`} className={cx('seller-link')} target="_blank">
                                         구매 링크로 이동
                                     </a>
-                                    <a href="/" className={cx('home')}>
+                                    <a href="/products" className={cx('home')}>
                                         목록으로
                                     </a>
                                 </div>
                             </div>
                         </div>
-                    );
-                })}
-            </div>
-        </div>
-    );
-}
+                    </div>
+                </div>
+            );
+        }
+    }
+};
 
 export default Details;

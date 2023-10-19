@@ -4,7 +4,9 @@ import styles from './Category.module.scss';
 import './style.css';
 
 import { Data } from '~/Database/Data';
+
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const cx = classNames.bind(styles);
 
@@ -12,7 +14,22 @@ function Category() {
     const [selectedFilters, setSelectedFilters] = useState([]);
     const [filteredItems, setFilteredItems] = useState(Data);
 
-    //카테고리 상품
+    // // Sử dụng fetchDataFromAPI
+    // useEffect(() => {
+    //     const datas = async () => {
+    //         try {
+    //             const res = await axios.get(
+    //                 'http://ec2-43-202-209-187.ap-northeast-2.compute.amazonaws.com:8080/products',
+    //             );
+    //             console.log(res.data);
+    //         } catch (error) {
+    //             console.log(error.message);
+    //         }
+    //     };
+    //     datas();
+    // });
+
+    //카테고리 상품 logic
 
     let filters = [
         '귀여운',
@@ -44,7 +61,7 @@ function Category() {
         }
     };
 
-    //카테고리 성별
+    //카테고리 성별 Logic
 
     let filterGender = ['남여공용', '남', '여'];
     const handleGenderFilterButtonClick = (selectedGender) => {
@@ -56,10 +73,13 @@ function Category() {
         }
     };
 
+    /* eslint-disable */
     useEffect(() => {
         filterItems();
     }, [selectedFilters]);
+    /* eslint-enable */
 
+    //Filter logic
     const filterItems = () => {
         if (selectedFilters.length > 0) {
             let tempItems = selectedFilters.map((selectedCategory) => {
@@ -120,21 +140,21 @@ function Category() {
                         return (
                             <div className={cx('product')} key={index}>
                                 <img src={item.imgSrc} alt="Product" />
-                                <a href="/details" className={cx('product-name')}>
+                                <a href={`/products/${item.id}`} className={cx('product-name')}>
                                     {item.name}
                                 </a>
                                 <div className={cx('product-seller-price')}>
                                     <p className={cx('product-seller')}>{item.seller}</p>
                                     <p className={cx('product-price')}>{item.price.toLocaleString()}원</p>
                                 </div>
-                                <div className={cx('product-category')}>
-                                    {/* {[...item.categoryId].map((x, i) => (
+                                {/* <div className={cx('product-category')}> */}
+                                {/* {[...item.categoryId].map((x, i) => (
                                         <div className={cx('product-category-id')} key={i}>
                                             {x}
                                         </div>
                                     ))} */}
-                                    <div className={cx('product-category-id')}>{item.categoryId}</div>
-                                </div>
+                                {/* <div className={cx('product-category-id')}>{item.categoryId}</div> */}
+                                {/* </div> */}
                             </div>
                         );
                     })}
