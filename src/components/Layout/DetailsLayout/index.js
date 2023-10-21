@@ -10,7 +10,7 @@ function DetailsLayout({ children }) {
             <Header />
             <div className="container">
                 <Details id={id} />
-                <Menu />
+                <Menu id={id} />
             </div>
         </div>
     );

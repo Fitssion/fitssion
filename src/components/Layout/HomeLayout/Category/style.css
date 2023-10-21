@@ -47,3 +47,26 @@ h2 {
 .active {
     border: 1px solid #6677f7;
 }
+
+/* Page Number */
+
+.page-link {
+    background: none;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 16px;
+    color: #000;
+    margin-left: 15px;
+    cursor: pointer;
+}
+.page-link:hover {
+    color: aqua;
+}
+
+.page-link:active {
+    color: #6677f7;
+}
+
+.page-active {
+    color: #6677f7;
+}

@@ -39,29 +39,34 @@
 }
 
 .product {
+    display: flex;
     width: 343px;
     height: 389px;
     border: 1px solid var(--gray-light);
     border-radius: 15px;
     margin: 15px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     img {
-        width: 100%;
+        width: 220px;
         height: 273px;
+        padding-top: 15px;
     }
 
     .product-name {
         font-weight: 700;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         line-height: 24px;
         letter-spacing: 0.1px;
         color: var(--text-title-color);
-        padding: 0 15px;
+        padding: 10px 15px;
     }
 
     .product-seller-price {
         display: flex;
-        padding: 0 15px;
+        padding: 25px 50px;
     }
 
     .product-seller {
@@ -69,6 +74,7 @@
         font-weight: 600;
         font-size: 1.2rem;
         line-height: 16px;
+        padding-right: 10rem;
         color: var(--text-musinsa-color);
     }
 

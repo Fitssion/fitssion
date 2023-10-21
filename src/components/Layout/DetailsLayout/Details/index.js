@@ -1,50 +1,52 @@
 import classNames from 'classnames/bind';
 import styles from './Details.module.scss';
 import './style.css';
-import { Data } from '~/Database/Data.js';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
+const API_URL = 'http://ec2-43-202-209-187.ap-northeast-2.compute.amazonaws.com:8080/products/';
 
 const Details = ({ id }) => {
-    const [item, setData] = useState(Data);
+    const [pagination, setPagination] = useState(API_URL + `${id}`);
+    const [item, setData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(pagination);
+                console.log(res.data);
+                setData(res.data);
+            } catch (error) {
+                throw error;
+            }
+        };
+        fetchData();
+    }, []);
 
-    for (let i = 0; i < Data.length; i++) {
-        if (id == item[i].id) {
-            return (
-                <div className={cx('wrapper')}>
-                    <div className={cx('content')}>
-                        <div className={cx('product')}>
-                            <img src={item[i].imgSrc} alt="Product" />
-                            <div className={cx('produc-details')}>
-                                <a href={`/products/${item[i].id}`} className={cx('product-name')}>
-                                    {item[i].name}
-                                </a>
-                                <p className={cx('product-price')}>{item[i].price.toLocaleString()}원</p>
-                                {/* <div className={cx('product-category')}>
-                                    {[...item.categoryId].map((x, i) => (
-                                        <div className={cx('product-category-id')} key={i}>
-                                            {x}
-                                        </div>
-                                    ))}
-                                </div> */}
-
-                                <p className={cx('product-seller')}>{item[i].seller}</p>
-                                <div className={cx('btn')}>
-                                    <a href={`${item[i].link}`} className={cx('seller-link')} target="_blank">
-                                        구매 링크로 이동
-                                    </a>
-                                    <a href="/products" className={cx('home')}>
-                                        목록으로
-                                    </a>
-                                </div>
-                            </div>
+    return (
+        <div className={cx('wrapper')}>
+            <div className={cx('content')}>
+                <div className={cx('product')}>
+                    <img src={item.imgSrc} alt="Product" />
+                    <div className={cx('produc-details')}>
+                        <a href={`/products/${item.id}`} className={cx('product-name')}>
+                            {item.name}
+                        </a>
+                        <p className={cx('product-price')}>{item.price}원</p>
+                        <p className={cx('product-seller')}>{item.seller}</p>
+                        <div className={cx('btn')}>
+                            <a href={`${item.link}`} className={cx('seller-link')} target="_blank">
+                                구매 링크로 이동
+                            </a>
+                            <a href="/products" className={cx('home')}>
+                                목록으로
+                            </a>
                         </div>
                     </div>
                 </div>
-            );
-        }
-    }
+            </div>
+        </div>
+    );
 };
 
 export default Details;

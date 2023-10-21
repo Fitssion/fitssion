@@ -1,14 +1,27 @@
 import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import './style.css';
-
-import { Data } from '~/Database/Data.js';
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 
 const cx = classNames.bind(styles);
+const API_URL = 'http://ec2-43-202-209-187.ap-northeast-2.compute.amazonaws.com:8080/products/';
 
-function Menu() {
-    const [selectedData, setSelectedData] = useState(Data);
+function Menu({ id }) {
+    const [pagination, setPagination] = useState(API_URL + `${id}`);
+    const [item, setData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const res = await axios.get(pagination);
+                console.log(res.data);
+                setData(res.data.relProducts);
+            } catch (error) {
+                throw error;
+            }
+        };
+        fetchData();
+    }, []);
     return (
         <div className={cx('wrapper')}>
             <div className={cx('title')}>
@@ -19,7 +32,7 @@ function Menu() {
                 <button>키테고리 정확도 순</button>
             </div> */}
             <div className={cx('content')}>
-                {selectedData.map((item, index) => {
+                {item.map((item, index) => {
                     return (
                         <div className={cx('product')} key={index}>
                             <img src={item.imgSrc} alt="Product" />
@@ -42,19 +55,19 @@ function Menu() {
                 })}
             </div>
             <div className={cx('pagination')}>
-                <a href="/" className={cx('page-link')}>
+                <a href="/products" className={cx('page-link')}>
                     1
                 </a>
-                <a href="/" className={cx('page-link')}>
+                <a href="/products" className={cx('page-link')}>
                     2
                 </a>
-                <a href="/" className={cx('page-link')}>
+                <a href="/products" className={cx('page-link')}>
                     3
                 </a>
-                <a href="/" className={cx('page-link')}>
+                <a href="/products" className={cx('page-link')}>
                     4
                 </a>
-                <a href="/" className={cx('page-link')}>
+                <a href="/products" className={cx('page-link')}>
                     5
                 </a>
             </div>

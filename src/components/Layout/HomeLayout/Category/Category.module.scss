@@ -109,22 +109,28 @@
 }
 
 .product {
-    display: inline-block;
+    display: flex;
     width: 343px;
     height: 389px;
     border: 1px solid var(--gray-light);
     border-radius: 15px;
     margin: 15px 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     img {
-        width: 100%;
+        left: 0;
+        right: 0;
+        width: 220px;
         height: 273px;
         margin-bottom: 15px;
+        padding-top: 15px;
     }
 
     .product-name {
         font-weight: 700;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         line-height: 24px;
         letter-spacing: 0.1px;
         color: var(--text-title-color);
@@ -143,6 +149,8 @@
         font-size: 1.2rem;
         line-height: 16px;
         padding-top: 25px;
+        padding-bottom: 25px;
+        padding-right: 50px;
         color: var(--text-musinsa-color);
     }
 
@@ -151,6 +159,8 @@
         font-size: 1.8rem;
         line-height: 16px;
         padding-top: 25px;
+        padding-bottom: 25px;
+        padding-left: 50px;
         color: var(--text-money);
     }
 
@@ -177,15 +187,20 @@
     justify-content: center;
     margin: 60px 0px;
 
-    a {
+    .page-link {
+        background: none;
         font-weight: 700;
         font-size: 18px;
         line-height: 16px;
         color: #000;
         margin-left: 15px;
+        cursor: pointer;
+    }
+    .page-link:hover {
+        color: aqua;
     }
 
-    a:active {
+    .page-link:active {
         color: #6677f7;
     }
 }

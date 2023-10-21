@@ -1,15 +1,15 @@
 import Header from '~/components/Layout/Header';
-import Details from './Category';
+import Category from './Category';
 
-function DetailsLayout({ children }) {
+function HomeLayout({ children }) {
     return (
         <div>
             <Header />
             <div className="container">
-                <Details />
+                <Category />
             </div>
         </div>
     );
 }
 
-export default DetailsLayout;
+export default HomeLayout;
