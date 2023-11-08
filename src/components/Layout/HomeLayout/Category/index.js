@@ -175,24 +175,24 @@ function Category() {
                 <div className={cx('content')}>
                     {filteredItems.map((item, index) => {
                         return (
-                            <div className={cx('product')} key={index}>
-                                <img src={item.imgSrc} alt="Product" />
-                                <a href={`/products/${item.id}`} className={cx('product-name')}>
-                                    {item.name}
-                                </a>
-                                <div className={cx('product-seller-price')}>
-                                    <p className={cx('product-seller')}>{item.seller}</p>
-                                    <p className={cx('product-price')}>{item.price.toLocaleString()}원</p>
-                                </div>
-                                {/* <div className={cx('product-category')}> */}
-                                {/* {[...item.categoryId].map((x, i) => (
+                            <a href={`/products/${item.id}`}>
+                                <div className={cx('product')} key={index}>
+                                    <img src={item.imgSrc} alt="Product" />
+                                    <p className={cx('product-name')}>{item.name}</p>
+                                    <div className={cx('product-seller-price')}>
+                                        <p className={cx('product-seller')}>{item.seller}</p>
+                                        <p className={cx('product-price')}>{item.price.toLocaleString()}원</p>
+                                    </div>
+                                    {/* <div className={cx('product-category')}> */}
+                                    {/* {[...item.categoryId].map((x, i) => (
                                         <div className={cx('product-category-id')} key={i}>
                                             {x}
                                         </div>
                                     ))} */}
-                                {/* <div className={cx('product-category-id')}>{item.categoryId}</div> */}
-                                {/* </div> */}
-                            </div>
+                                    {/* <div className={cx('product-category-id')}>{item.categoryId}</div> */}
+                                    {/* </div> */}
+                                </div>
+                            </a>
                         );
                     })}
                 </div>

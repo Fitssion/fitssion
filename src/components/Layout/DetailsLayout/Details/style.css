@@ -45,5 +45,11 @@ h2 {
 }
 
 .active {
-    border: 1px solid #6677f7;
+    background-color: #000;
+    color: aliceblue;
+    border: 1px solid #000;
+}
+
+.active:hover {
+    box-shadow: 3px 3px 10px #4d4d4d;
 }

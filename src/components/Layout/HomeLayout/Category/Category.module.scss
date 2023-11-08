@@ -112,12 +112,15 @@
     display: flex;
     width: 343px;
     height: 389px;
-    border: 1px solid var(--gray-light);
     border-radius: 15px;
     margin: 15px 0;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &:hover {
+        box-shadow: 5px 5px 20px #dbdbdb;
+    }
 
     img {
         left: 0;
