@@ -10,6 +10,8 @@ const API_URL = 'http://ec2-43-202-209-187.ap-northeast-2.compute.amazonaws.com:
 function Menu({ id }) {
     const [pagination, setPagination] = useState(API_URL + `${id}`);
     const [item, setData] = useState([]);
+
+    //API를 통해 데이터 불어오기
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -22,6 +24,7 @@ function Menu({ id }) {
         };
         fetchData();
     }, []);
+
     return (
         <div className={cx('wrapper')}>
             <div className={cx('title')}>

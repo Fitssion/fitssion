@@ -19,6 +19,7 @@ function Category() {
 
     const pageNum = [0, 1, 2];
 
+    //페이지 이동
     const handlePageButtonClick = (value) => {
         handleSeletedPage(value);
         if (value > 0) {
@@ -28,6 +29,7 @@ function Category() {
         }
     };
 
+    //API를 통해 데이터 불어오기
     const fetchData = async () => {
         try {
             const res = await axios.get(pagination);
@@ -37,12 +39,12 @@ function Category() {
         }
     };
 
+    //페이지 이동할 때마다 fetchData() 함수 동작시킴
     useEffect(() => {
         fetchData();
     }, [handlePageButtonClick]);
 
-    //카테고리 상품 logic
-
+    //카테고리 이름
     let filters = [
         { id: 0, name: '귀여운' },
         { id: 1, name: '산뜻한' },
@@ -64,6 +66,7 @@ function Category() {
         { id: 17, name: '시원한' },
     ];
 
+    //카테고리 로직 처리
     const handleFilterButtonClick = (selectedCategory) => {
         if (selectedFilters.includes(selectedCategory)) {
             let filters = selectedFilters.filter((el) => el !== selectedCategory);
@@ -73,8 +76,7 @@ function Category() {
         }
     };
 
-    //카테고리 성별 Logic
-
+    //카테고리 성별 이름
     let filterGender = [
         { id: 0, name: '남여공용' },
         { id: 1, name: '남' },
@@ -88,6 +90,7 @@ function Category() {
         }
     };
 
+    //기본 페이지가 0으로 설정
     const handleSeletedPage = (selectedPage) => {
         if (selectedPages === selectedPage) {
             setSelectedPage(0);

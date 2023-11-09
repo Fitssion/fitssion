@@ -8,7 +8,4 @@ const publicRoutes = [
     { path: '/products/:id', component: Details, layout: DetailsLayout },
 ];
 
-//로그인해야 볼 수 있는 페이지
-const privateRoutes = [];
-
-export { publicRoutes, privateRoutes };
+export { publicRoutes };
